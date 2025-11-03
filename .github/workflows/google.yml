@@ -32,6 +32,7 @@
 # 5. Change the values in the "env" block to match your values.
 
 name: "Build and Deploy to GKE"
+# runbook_url: .github/runbooks/deploy-gke.md
 
 on:
   workflow_run:
@@ -49,7 +50,7 @@ env:
   IMAGE: "python-test"
 
 jobs:
-  ssetup-build-publish-deploy:
+  setup-build-publish-deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }} # ✅ runs only if CI passes
     name: "Setup, Build, Publish, and Deploy"
     runs-on: "ubuntu-latest"
